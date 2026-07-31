@@ -1,0 +1,90 @@
+{
+    "Mercury": {
+        "name": "Mercury",
+        "mass": 3.3011e23,
+        "radius": 2439.7,
+        "distance": 57900000,
+        "orbit": "Sun",
+        "color": "#a6a6a6"
+    },
+
+    "Venus": {
+        "name": "Venus",
+        "mass": 4.8675e24,
+        "radius": 6051.8,
+        "distance": 108200000,
+        "orbit": "Sun",
+        "color": "#e6c27a"
+    },
+
+    "Earth": {
+        "name": "Earth",
+        "mass": 5.97237e24,
+        "radius": 6371,
+        "distance": 149600000,
+        "orbit": "Sun",
+        "color": "#3b82f6"
+    },
+
+    "Moon": {
+        "name": "Moon",
+        "mass": 7.342e22,
+        "radius": 1737.4,
+        "distance": 384400,
+        "orbit": "Earth",
+        "color": "#aaaaaa"
+    },
+
+    "Mars": {
+        "name": "Mars",
+        "mass": 6.4171e23,
+        "radius": 3389.5,
+        "distance": 227900000,
+        "orbit": "Sun",
+        "color": "#c1440e"
+    },
+
+    "Jupiter": {
+        "name": "Jupiter",
+        "mass": 1.8982e27,
+        "radius": 69911,
+        "distance": 778500000,
+        "orbit": "Sun",
+        "color": "#d8b08c"
+    },
+
+    "Saturn": {
+        "name": "Saturn",
+        "mass": 5.6834e26,
+        "radius": 58232,
+        "distance": 1434000000,
+        "orbit": "Sun",
+        "color": "#e5d3a0"
+    },
+
+    "Uranus": {
+        "name": "Uranus",
+        "mass": 8.6813e25,
+        "radius": 25362,
+        "distance": 2871000000,
+        "orbit": "Sun",
+        "color": "#7de3e8"
+    },
+
+    "Neptune": {
+        "name": "Neptune",
+        "mass": 1.02413e26,
+        "radius": 24622,
+        "distance": 4495000000,
+        "orbit": "Sun",
+        "color": "#4169e1"
+    },
+    "Sagittarius A*": {
+        "name": "Sagittarius A*",
+        "mass": 8.54e36,
+        "radius": 12700000,
+        "distance": 778500000,
+        "orbit": "Sun",
+        "color": "gray"
+    }
+}

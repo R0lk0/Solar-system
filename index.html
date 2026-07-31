@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gravity</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas></canvas>
+    <button id="newPresetButton">+</button>
+    <button id="newCustomButton">✎</button>
+    <button id="planetListButton">☰</button>
+    <button id="settingsButton">⚙</button>
+
+    <div id="newPreset">
+        <h2>Presets</h2>
+        <div id="presetList"></div>
+    </div>
+    <div id="newCustom">
+        <h2>Custom planet</h2>
+        <label>
+            Name
+            <input type="text" id="planetName"> 
+        </label>
+        <label>
+            Mass (kg)
+            <input type="text" id="planetMass">
+        </label>
+        <label>
+            Radius (km)
+            <input type="text" id="planetRadius">
+        </label>
+        <label>
+            Distance (km)
+            <input type="text" id="planetDistance">
+        </label>
+        <label>
+            Color
+            <input type="color" id="planetColor">
+        </label>
+        <label>
+            Orbiting
+            <select id="orbitTarget"></select>
+        </label>
+        <button id="spawnPlanet">Spawn planet</button>
+    </div>
+    <div id="planetList">
+        <h2>List of planets</h2>
+        <div id="planetNames"></div>
+    </div>
+    <div id="settings">
+        <h2>Settings</h2>
+        <label>
+            Show orbit
+            <select id="orbitSelection">
+                <option value="hide">hide</option>
+                <option value="show" selected="true">show</option>
+            </select>
+        </label>
+        <label>
+            Hour / frame
+            <input type="text" id="timeRange" value="3600">
+        </label>
+    </div>
+
+    <div id="info"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

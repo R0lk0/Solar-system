@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    user-select: none;
+}
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: block;
+}
+#newPresetButton,
+#newCustomButton, 
+#planetListButton,
+#settingsButton {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(80, 80, 90, 0.65);
+    color: white;
+    transition: left 0.3s ease;
+    text-shadow:
+        0 0 1px rgba(255, 255, 255, 0.8),
+        0 0 2px rgba(255, 255, 255, 0.5),
+        0 0 4px rgba(255, 255, 255, 0.3);
+}
+#newCustomButton{
+    top: 90px !important; 
+}
+#planetListButton{
+    top: 160px !important; 
+}
+#settingsButton{
+    top: 230px !important;
+}
+#newPresetButton:hover,
+#newCustomButton:hover, 
+#planetListButton:hover,
+#settingsButton:hover {
+    box-shadow:
+        0 0 8px rgba(255, 255, 255, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.5),
+        0 0 35px rgba(255, 255, 255, 0.3);
+    background-color: rgba(80, 80, 90, 0.8);
+    cursor: pointer;
+}
+#newPreset,
+#newCustom, 
+#planetList,
+#settings {
+    position: fixed;
+    top: 20px;
+    left: -320px;
+    width: 300px;
+    height: 75vh;
+    background-color: rgba(80, 80, 90, 0.65);
+    color: white;
+    border-radius: 20px;
+    backdrop-filter: blur(3px);
+    transition: left 0.3s ease;
+    z-index: 99;
+    text-align: center;
+    overflow-y: auto;
+}
+#newPreset.open{
+    left: 20px;
+}
+#newCustom.open {
+    left: 20px;
+}
+#planetList.open{
+    left: 20px;
+}
+#settings.open{
+    left: 20px;
+}
+#newPreset:hover,
+#newCustom:hover, 
+#planetList:hover,
+#settings:hover {
+    box-shadow:
+        0 0 8px rgba(255, 255, 255, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.5),
+        0 0 35px rgba(255, 255, 255, 0.3);
+}
+#newPresetButton.open,
+#newCustomButton.open, 
+#planetListButton.open,
+#settingsButton.open {
+    left: 340px;
+}
+h2 {
+    margin: 15px 0 15px;
+    font-size: 28px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 2px;
+    text-decoration: underline;
+    text-shadow:
+        0 0 1px rgba(255, 255, 255, 0.8),
+        0 0 2px rgba(255, 255, 255, 0.5),
+        0 0 4px rgba(255, 255, 255, 0.3);
+}
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #ddd;
+}
+input {
+    width: 75%;
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.12);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    outline: none;
+    font-size: 15px;
+}
+select{
+    width: 75%;
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.12);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    outline: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+#spawnPlanet {
+    width: 150px;
+    height: 50px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(80, 80, 90, 0.65);
+    color: #ddd;
+}
+#spawnPlanet:hover,
+#planetNames button:hover,
+#presetList button:hover {
+    box-shadow:
+        0 0 8px rgba(255, 255, 255, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.5),
+        0 0 35px rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}
+#planetNames button,
+#presetList button {
+    display: block;
+    width: 75%;
+    margin: 8px auto;
+
+    padding: 10px;
+
+    background-color: rgba(255,255,255,0.12);
+    color: white;
+
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+}
+#info{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 250px;
+    color: white;
+    display: none;
+}
+#info button{
+    padding: 15px;
+    background-color: rgba(255, 0, 0, 0.2);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+}
+#info button:hover{
+    background-color: rgba(255, 0, 0, 0.5);
+    cursor: pointer;
+}
