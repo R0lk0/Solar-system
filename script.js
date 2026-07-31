@@ -244,6 +244,8 @@ function init() {
     updateOrbitList();
 }
 
+let infoTimer = 0;
+
 function animate() {
     requestAnimationFrame(animate);
 
@@ -257,6 +259,15 @@ function animate() {
     bodies.forEach(body => {
         body.update();
     });
+
+    if (selectedBody) {
+        infoTimer++;
+
+        if (infoTimer > 5) {
+            updatePlanetStats();
+            infoTimer = 0;
+        }
+    }
 }
 
 
@@ -368,15 +379,19 @@ function updatePlanetInfo(){
 
     info.style.display = "block";
 
-    let distanceFromParent = null;
+    let distanceFromParent = "";
 
     if (selectedBody.orbitTarget) {
         let dx = selectedBody.x - selectedBody.orbitTarget.x;
         let dy = selectedBody.y - selectedBody.orbitTarget.y;
 
-        distanceFromParent = Math.sqrt(
-            dx * dx + dy * dy
-        );
+        let distance = Math.sqrt(dx*dx + dy*dy);
+
+        distanceFromParent = `
+        Distance from ${selectedBody.orbitTarget.name}:
+        <br>
+        <span id="distance">${Math.round(distance).toLocaleString()}</span>
+        <br><br>`;
     }
 
     info.innerHTML = `
@@ -390,46 +405,39 @@ function updatePlanetInfo(){
         ${selectedBody.radius.toLocaleString()} km
         <br><br>
 
-        ${distanceFromParent ? `Distance from ${selectedBody.orbitTarget.name}:
-        <br>
-        ${Math.round(distanceFromParent).toLocaleString()} km
-        <br><br>
-        ` : ""
-}
+        ${distanceFromParent}
 
         Position:
         <br>
-        X: ${Math.round(selectedBody.x).toLocaleString()} km
+        X: <span id="posX"></span> km
         <br>
-        Y: ${Math.round(selectedBody.y).toLocaleString()} km
+        Y: <span id="posY"></span> km
         <br><br>
 
         Velocity:
         <br>
-        X: ${selectedBody.vx.toFixed(2)} km/s
+        X: <span id="velX"></span> km/s
         <br>
-        Y: ${selectedBody.vy.toFixed(2)} km/s
+        Y: <span id="velY"></span> km/s
         <br><br>
 
         Speed:
-        ${Math.sqrt(
-            selectedBody.vx * selectedBody.vx +
-            selectedBody.vy * selectedBody.vy
-        ).toFixed(2)} km/s
+        <span id="speed"></span> km/s
+
         <br><br>
 
         <button id="delete">Delete</button>
     `;
-
 
     const deleteButton = document.getElementById("delete");
 
     deleteButton.addEventListener("click", () => {
 
         if (selectedBody.name === "Sun") {
-            alert("Cannot delete the Sun!");   
+            alert("Cannot delete the Sun!");
             return;
         }
+
         bodies = bodies.filter(
             body => body !== selectedBody
         );
@@ -445,6 +453,39 @@ function updatePlanetInfo(){
         updatePlanetList();
         updateOrbitList();
     });
+
+    updatePlanetStats();
+}
+
+function updatePlanetStats(){
+
+    if (!selectedBody) return;
+
+    document.getElementById("posX").textContent =
+        Math.round(selectedBody.x).toLocaleString();
+
+    document.getElementById("posY").textContent =
+        Math.round(selectedBody.y).toLocaleString();
+
+    document.getElementById("velX").textContent =
+        selectedBody.vx.toFixed(2);
+
+    document.getElementById("velY").textContent =
+        selectedBody.vy.toFixed(2);
+
+    document.getElementById("speed").textContent =
+        Math.sqrt(
+            selectedBody.vx ** 2 +
+            selectedBody.vy ** 2
+        ).toFixed(2);
+
+    if (selectedBody.orbitTarget){
+        let dx = selectedBody.x - selectedBody.orbitTarget.x;
+        let dy = selectedBody.y - selectedBody.orbitTarget.y;
+
+        document.getElementById("distance").textContent =
+            Math.round(Math.sqrt(dx*dx + dy*dy)).toLocaleString() + " km";
+    }
 }
 
 init();
